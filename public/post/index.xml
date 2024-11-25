@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on AI Tech Blog</title>
+    <link>http://localhost:1313/post/</link>
+    <description>Recent content in Posts on AI Tech Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2024 21:03:50 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HelloHugo</title>
+      <link>http://localhost:1313/post/hellohugo/</link>
+      <pubDate>Mon, 25 Nov 2024 21:03:50 +0800</pubDate>
+      <guid>http://localhost:1313/post/hellohugo/</guid>
+      <description>&lt;h1 id=&#34;hellohugo&#34;&gt;HelloHugo&lt;/h1&gt;&#xA;&lt;p&gt;你好！这里是2050年！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Clean White Theme for Hugo</title>
+      <link>http://localhost:1313/post/readme/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/readme/</guid>
+      <description>&lt;h1 id=&#34;clean-white-theme-for-hugo&#34;&gt;Clean White Theme for Hugo&lt;/h1&gt;&#xA;&lt;p&gt;CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live &lt;a href=&#34;https://zhaohuabing.com&#34;&gt;demo site&lt;/a&gt; using this theme.&lt;/p&gt;&#xA;&lt;p&gt;It is based on &lt;a href=&#34;https://github.com/Huxpro/huxpro.github.io&#34;&gt;huxblog Jekyll Theme&lt;/a&gt;&#xA;and &lt;a href=&#34;https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll&#34;&gt;Clean Blog Jekyll Theme&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster compiling speed. Some other features which I think could be useful, such as site search with algolia and proxy for Disqus access in China, have also been built in the CleanWhite theme. Other fancy features of upstream projects are not supported by this Hugo theme, I&amp;rsquo;d like to make it as simple as possible and only focus on blog purpose, at least for now.&#xA;While I created this theme, I followed the Hugo theme best practice and tried to make every part of the template as a replaceable partial html, so it could be much easier for you to make your customization based on it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%89%8D%E6%B2%BF%E8%BF%BD%E8%B8%AA/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E5%89%8D%E6%B2%BF%E8%BF%BD%E8%B8%AA/readme/</guid>
+      <description>&lt;h1 id=&#34;前沿追踪&#34;&gt;前沿追踪&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;实时追踪前沿论文呢&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%89%A2%E5%9B%BA/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%89%A2%E5%9B%BA/readme/</guid>
+      <description>&lt;h1 id=&#34;基础牢固&#34;&gt;基础牢固&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;主要写一些关于基础理解的博客&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%9E%8E%E9%BC%93%E6%8D%A3%E5%B7%A5%E5%85%B7/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E7%9E%8E%E9%BC%93%E6%8D%A3%E5%B7%A5%E5%85%B7/readme/</guid>
+      <description>&lt;h1 id=&#34;工具&#34;&gt;工具&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;此处为常用工具及相关技术博客&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E7%BB%8F%E5%85%B8%E5%93%81%E5%AD%A6/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E7%BB%8F%E5%85%B8%E5%93%81%E5%AD%A6/readme/</guid>
+      <description>&lt;h1 id=&#34;经典品学&#34;&gt;经典品学&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;主要写一些关于经典论文理解的博客&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%80%83/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%80%83/readme/</guid>
+      <description>&lt;h1 id=&#34;面试常考&#34;&gt;面试常考&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;关于面试常考到的问题&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E9%A1%B9%E7%9B%AE%E6%B2%89%E6%B7%80/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E9%A1%B9%E7%9B%AE%E6%B2%89%E6%B7%80/readme/</guid>
+      <description>&lt;h1 id=&#34;项目沉淀&#34;&gt;项目沉淀&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;在此记录一些已经完成的竞赛、项目和解决方案&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

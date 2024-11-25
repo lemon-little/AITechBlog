@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Istio on AI Tech Blog</title>
+    <link>http://localhost:1313/tags/istio/</link>
+    <description>Recent content in Istio on AI Tech Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/istio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Istio v1aplha3 routing API介绍(译文）</title>
+      <link>http://localhost:1313/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</guid>
+      <description>&lt;p&gt;到目前为止，Istio提供了一个简单的API来进行流量管理，该API包括了四种资源：RouteRule，DestinationPolicy，EgressRule和Ingress（直接使用了Kubernets的Ingress资源）。借助此API，用户可以轻松管理Istio服务网格中的流量。该API允许用户将请求路由到特定版本的服务，为弹性测试注入延迟和失败，添加超时和断路器等等，所有这些功能都不必更改应用程序本身的代码。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Istio 0.8 Release发布</title>
+      <link>http://localhost:1313/2018/06/02/istio08/</link>
+      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018/06/02/istio08/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;在6月1日这一天的早上，Istio社区宣布发布0.8 Release，除了常规的故障修复和性能改进外，这个儿童节礼物里面还有什么值得期待内容呢？让我们来看一看：&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Istio Sidecar自动注入原理</title>
+      <link>http://localhost:1313/2018/05/23/istio-auto-injection-with-webhook/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018/05/23/istio-auto-injection-with-webhook/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Kubernets 1.9版本引入了Admission Webhook(web 回调)扩展机制，通过Webhook,开发者可以非常灵活地对Kubernets API Server的功能进行扩展，在API Server创建资源时对资源进行验证或者修改。&lt;/p&gt;&#xA;&lt;p&gt;使用webhook的优势是不需要对API Server的源码进行修改和重新编译就可以扩展其功能。插入的逻辑实现为一个独立的web进程，通过参数方式传入到kubernets中，由kubernets在进行自身逻辑处理时对扩展逻辑进行回调。&lt;/p&gt;&#xA;&lt;p&gt;Istio 0.7版本就利用了Kubernets webhook实现了sidecar的自动注入。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>谈谈微服务架构中的基础设施：Service Mesh与Istio</title>
+      <link>http://localhost:1313/2018/03/29/what-is-service-mesh-and-istio/</link>
+      <pubDate>Thu, 29 Mar 2018 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018/03/29/what-is-service-mesh-and-istio/</guid>
+      <description>&lt;h2 id=&#34;微服务架构的演进&#34;&gt;微服务架构的演进&lt;/h2&gt;&#xA;&lt;p&gt;作为一种架构模式，微服务将复杂系统切分为数十乃至上百个小服务，每个服务负责实现一个独立的业务逻辑。这些小服务易于被小型的软件工程师团队所理解和修改，并带来了语言和框架选择灵活性，缩短应用开发上线时间，可根据不同的工作负载和资源要求对服务进行独立缩扩容等优势。&lt;/p&gt;&#xA;&lt;p&gt;另一方面，当应用被拆分为多个微服务进程后，进程内的方法调用变成了了进程间的远程调用。引入了对大量服务的连接、管理和监控的复杂性。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nginx开源Service Mesh组件Nginmesh安装指南</title>
+      <link>http://localhost:1313/2018/01/02/nginmesh-install/</link>
+      <pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018/01/02/nginmesh-install/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;Nginmesh是NGINX的Service Mesh开源项目，用于Istio服务网格平台中的数据面代理。它旨在提供七层负载均衡和服务路由功能，与Istio集成作为sidecar部署，并将以“标准，可靠和安全的方式”使得服务间通信更容易。Nginmesh在今年底已经连续发布了0.2和0.3版本，提供了服务发现，请求转发，路由规则，性能指标收集等功能。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>采用Istio实现灰度发布(金丝雀发布)</title>
+      <link>http://localhost:1313/2017/11/08/istio-canary-release/</link>
+      <pubDate>Wed, 08 Nov 2017 15:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017/11/08/istio-canary-release/</guid>
+      <description>&lt;h2 id=&#34;灰度发布又名金丝雀发布介绍&#34;&gt;灰度发布（又名金丝雀发布）介绍&lt;/h2&gt;&#xA;&lt;p&gt;当应用上线以后，运维面临的一大挑战是如何能够在不影响已上线业务的情况下进行升级。做过产品的同学都清楚，不管在发布前做过多么完备的自动化和人工测试，在发布后都会出现或多或少的故障。根据墨菲定律，可能会出错的版本发布一定会出错。&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;ANYTHING THAN CAN GO WRONG WILL GO WRONG&amp;rdquo;  &amp;ndash;MURPHY&amp;rsquo;S LAW&lt;/p&gt;&#xA;&lt;p&gt;因此我们不能寄希望于在线下测试时发现所有潜在故障。在无法百分百避免版本升级故障的情况下，需要通过一种方式进行可控的版本发布，把故障影响控制在可以接受的范围内，并可以快速回退。&lt;/p&gt;&#xA;&lt;p&gt;可以通过&lt;a href=&#34;https://martinfowler.com/bliki/CanaryRelease.html&#34;&gt;灰度发布（又名金丝雀发布）&lt;/a&gt;来实现业务从老版本到新版本的平滑过渡，并避免升级过程中出现的问题对用户造成的影响。&lt;/p&gt;&#xA;&lt;p&gt;“金丝雀发布”的来源于矿工们用金丝雀对矿井进行空气测试的做法。以前矿工挖煤的时候，矿工下矿井前会先把金丝雀放进去，或者挖煤的时候一直带着金丝雀。金丝雀对甲烷和一氧化碳浓度比较敏感，会先报警。所以大家都用“金丝雀”来搞最先的测试。&lt;/p&gt;&#xA;&lt;p&gt;下图中，左下方的少部分用户就被当作“金丝雀”来用于测试新上线的1.1版本。如果新版本出现问题，“金丝雀”们会报警，但不会影响其他用户业务的正常运行。&#xA;&#xD;&#xA;  &lt;img src=&#34;http://localhost:1313/img/istio-canary-release/canary-deployment.PNG&#34; alt=&#34;Istio灰度发布示意图&#34;&gt;&#xD;&#xA;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;灰度发布（金丝雀发布）的流程如下：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;准备和生产环境隔离的“金丝雀”服务器。&lt;/li&gt;&#xA;&lt;li&gt;将新版本的服务部署到“金丝雀”服务器上。&lt;/li&gt;&#xA;&lt;li&gt;对“金丝雀”服务器上的服务进行自动化和人工测试。&lt;/li&gt;&#xA;&lt;li&gt;测试通过后，将“金丝雀”服务器连接到生产环境，将少量生产流量导入到“金丝雀”服务器中。&lt;/li&gt;&#xA;&lt;li&gt;如果在线测试出现问题，则通过把生产流量从“金丝雀”服务器中重新路由到老版本的服务的方式进行回退，修复问题后重新进行发布。&lt;/li&gt;&#xA;&lt;li&gt;如果在线测试顺利，则逐渐把生产流量按一定策略逐渐导入到新版本服务器中。&lt;/li&gt;&#xA;&lt;li&gt;待新版本服务稳定运行后，删除老版本服务。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;istio实现灰度发布金丝雀发布的原理&#34;&gt;Istio实现灰度发布(金丝雀发布)的原理&lt;/h2&gt;&#xA;&lt;p&gt;从上面的流程可以看到，如果要实现一套灰度发布的流程，需要应用程序和运维流程对该发布过程进行支持，工作量和难度的挑战是非常大的。虽然面对的问题类似，但每个企业或组织一般采用不同的私有化实现方案来进行灰度发布,为解决该问题导致研发和运维花费了大量的成本。&lt;/p&gt;&#xA;&lt;p&gt;Istio通过高度的抽象和良好的设计采用一致的方式解决了该问题，采用sidecar对应用流量进行了转发，通过Pilot下发路由规则，可以在不修改应用程序的前提下实现应用的灰度发布。&lt;/p&gt;&#xA;&lt;p&gt;备注：采用kubernetes的&lt;a href=&#34;https://kubernetes.io/docs/tasks/run-application/rolling-update-replication-controller/&#34;&gt;滚动升级(rolling update)&lt;/a&gt;功能也可以实现不中断业务的应用升级,但滚动升级是通过逐渐使用新版本的服务来替换老版本服务的方式对应用进行升级，在滚动升级不能对应用的流量分发进行控制，因此无法采用受控地把生产流量逐渐导流到新版本服务中，也就无法控制服务升级对用户造成的影响。&lt;/p&gt;&#xA;&lt;p&gt;采用Istio后，可以通过定制路由规则将特定的流量（如指定特征的用户）导入新版本服务中，在生产环境下进行测试，同时通过渐进受控地导入生产流量，可以最小化升级中出现的故障对用户的影响。并且在同时存在新老版本服务时，还可根据应用压力对不同版本的服务进行独立的缩扩容，非常灵活。采用Istio进行灰度发布的流程如下图所示：&#xA;&#xD;&#xA;  &lt;img src=&#34;http://localhost:1313/img/istio-canary-release/canary-deployments.gif&#34; alt=&#34;Istio灰度发布示意图&#34;&gt;&#xD;&#xA;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;操作步骤&#34;&gt;操作步骤&lt;/h2&gt;&#xA;&lt;p&gt;下面采用Istion自带的BookinfoInfo示例程序来试验灰度发布的流程。&lt;/p&gt;&#xA;&lt;h3 id=&#34;测试环境安装&#34;&gt;测试环境安装&lt;/h3&gt;&#xA;&lt;p&gt;首先参考&lt;a href=&#34;http://zhaohuabing.com/2017/11/04/istio-install_and_example/&#34;&gt;手把手教你从零搭建Istio及Bookinfo示例程序&lt;/a&gt;安装Kubernetes及Istio控制面。&lt;/p&gt;&#xA;&lt;p&gt;因为本试验并不需要安装全部3个版本的reviews服务，因此如果已经安装了该应用，先采用下面的命令卸载。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;istio-0.2.10/samples/bookinfo/kube/cleanup.sh&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;部署v1版本的服务&#34;&gt;部署V1版本的服务&lt;/h3&gt;&#xA;&lt;p&gt;首先只部署V1版本的Bookinfo应用程序。由于示例中的yaml文件中包含了3个版本的reviews服务，我们先将V2和V3版本的Deployment从yaml文件istio-0.2.10/samples/bookinfo/kube/bookinfo.yaml中删除。&lt;/p&gt;&#xA;&lt;p&gt;从Bookinfo.yaml中删除这部分内容:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: extensions/v1beta1&#xD;&#xA;kind: Deployment&#xD;&#xA;metadata:&#xD;&#xA;  name: reviews-v2&#xD;&#xA;spec:&#xD;&#xA;  replicas: 1&#xD;&#xA;  template:&#xD;&#xA;    metadata:&#xD;&#xA;      labels:&#xD;&#xA;        app: reviews&#xD;&#xA;        version: v2&#xD;&#xA;    spec:&#xD;&#xA;      containers:&#xD;&#xA;      - name: reviews&#xD;&#xA;        image: istio/examples-bookinfo-reviews-v2:0.2.3&#xD;&#xA;        imagePullPolicy: IfNotPresent&#xD;&#xA;        ports:&#xD;&#xA;        - containerPort: 9080&#xD;&#xA;---&#xD;&#xA;apiVersion: extensions/v1beta1&#xD;&#xA;kind: Deployment&#xD;&#xA;metadata:&#xD;&#xA;  name: reviews-v3&#xD;&#xA;spec:&#xD;&#xA;  replicas: 1&#xD;&#xA;  template:&#xD;&#xA;    metadata:&#xD;&#xA;      labels:&#xD;&#xA;        app: reviews&#xD;&#xA;        version: v3&#xD;&#xA;    spec:&#xD;&#xA;      containers:&#xD;&#xA;      - name: reviews&#xD;&#xA;        image: istio/examples-bookinfo-reviews-v3:0.2.3&#xD;&#xA;        imagePullPolicy: IfNotPresent&#xD;&#xA;        ports:&#xD;&#xA;        - containerPort: 9080    &#xD;&#xA;---         &#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;部署V1版本的Bookinfo程序。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Istio实现应用流量转移</title>
+      <link>http://localhost:1313/2017/11/07/istio-traffic-shifting/</link>
+      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017/11/07/istio-traffic-shifting/</guid>
+      <description>&lt;p&gt;关于Istio的更多内容请参考&lt;a href=&#34;http://istio.doczh.cn/&#34;&gt;istio中文文档&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;p&gt;原文参见&lt;a href=&#34;https://istio.io/docs/tasks/traffic-management/traffic-shifting.html&#34;&gt;Traffic Shifting&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;p&gt;本任务将演示如何将应用流量逐渐从旧版本的服务迁移到新版本。通过Istio，可以使用一系列不同权重的规则（10%，20%，··· 100%）将流量平缓地从旧版本服务迁移到新版本服务。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Istio及Bookinfo示例程序安装试用笔记</title>
+      <link>http://localhost:1313/2017/11/04/istio-install_and_example/</link>
+      <pubDate>Sat, 04 Nov 2017 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017/11/04/istio-install_and_example/</guid>
+      <description>&lt;h2 id=&#34;服务网格简介&#34;&gt;服务网格简介&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;服务网格&lt;/strong&gt;（Service Mesh）是为解决微服务的通信和治理而出现的一种&lt;strong&gt;架构模式&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;服务网格将服务间通讯以及与此相关的管理控制功能从业务程序中下移到一个基础设施层，从而彻底隔离了业务逻辑和服务通讯两个关注点。采用服务网格后，应用开发者只需要关注并实现应用业务逻辑。服务之间的通信，包括服务发现，通讯的可靠性，通讯的安全性，服务路由等由服务网格层进行处理，并对应用程序透明。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'AI Tech Blog'
+theme = 'hugo-theme-cleanwhite'
