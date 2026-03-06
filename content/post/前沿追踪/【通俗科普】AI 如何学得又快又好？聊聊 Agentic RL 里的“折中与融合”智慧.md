@@ -1,4 +1,13 @@
-## 引言：当 AI 学徒遇上“标准答案”
+---
+layout:     post
+title:      "AI 如何学得又快又好？"
+subtitle:   "聊聊 Agentic RL 里的“折中与融合”智慧"
+date:       2026-03-06
+author:     "刘晨阳"
+image:      "https://img.lemon-little.com/post-bg-2015.jpg"
+---
+
+# 引言：当 AI 学徒遇上“标准答案”
 
 大家好！今天我们来聊一个 AI 训练里特别有意思的话题：怎么让 AI “学得又快又好”？
 

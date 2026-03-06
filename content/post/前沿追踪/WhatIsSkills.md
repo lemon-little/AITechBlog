@@ -1,3 +1,12 @@
+---
+layout:     post
+title:      "What Is Skills?"
+subtitle:   "软件工程模块化思想在 AI 时代的延续与进化"
+date:       2026-03-06
+author:     "刘晨阳"
+image:      "https://img.lemon-little.com/post-bg-unix-linux.jpg"
+---
+
 # What Is Skills?
 
 ## 从热潮到反思
