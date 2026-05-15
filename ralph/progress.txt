@@ -1,0 +1,22 @@
+# Ralph Progress Log
+Started: 2026-05-15
+---
+
+## Codebase Patterns
+- Hugo version is 0.154.5 (extended). The deprecated top-level `paginate` key must be written as `[pagination]\n  pagerSize = N` instead, otherwise build fails.
+- Theme is `hugo-theme-cleanwhite` and lives as a git submodule under `themes/hugo-theme-cleanwhite`. It uses `params.addtional_menus` (note the typo "addtional") for the top navigation.
+- Content lives under `content/post/<中文目录>/`. The cleanwhite theme picks up everything under `content/post/` automatically; an `_index.md` is what makes a sub-folder a real Hugo section page (NOT `README.md`).
+- The site is deployed to GitHub Pages via `.github/workflows/` on push to `main` — production baseURL is `https://lemon-little.github.io/AITechBlog/`.
+
+---
+
+## 2026-05-15 - US-001
+- Replaced `hugo.toml` with full personalized config: title `刘晨阳的博客 | liuchenyang Blog`, sidebar/SEO/keyword for 刘晨阳, github = lemon-little, all services tied to the original author disabled (algolia/artalk/disqus/reward/analytics).
+- Added 10 top-nav entries via `params.addtional_menus` so SKILLS / 前沿追踪 / 项目沉淀 / 瞎鼓捣工具 / 基础牢固 / 面试常考 / 经典品学 / ARCHIVE / NOTES / ABOUT are all reachable from the header.
+- Files changed: `hugo.toml`
+- **Learnings for future iterations:**
+  - Hugo 0.128+ removed top-level `paginate` — use `[pagination]\n  pagerSize` block.
+  - The cleanwhite theme expects `params.addtional_menus` (typo on purpose). Do not rename it.
+  - The submodule `themes/hugo-theme-cleanwhite` was empty on first checkout — run `git submodule update --init --recursive` before any `hugo` command.
+  - `hugo --minify` build passed with 29 pages.
+---
