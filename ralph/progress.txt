@@ -20,3 +20,14 @@ Started: 2026-05-15
   - The submodule `themes/hugo-theme-cleanwhite` was empty on first checkout — run `git submodule update --init --recursive` before any `hugo` command.
   - `hugo --minify` build passed with 29 pages.
 ---
+
+## 2026-05-15 - US-002
+- Rewrote `content/about/index.md` (English) and `content/about/index-zh.md` (Chinese) for 刘晨阳 / liuchenyang. Kept the existing front matter intact in `index.md` (`layout: page`, `multilingual: true`); the Chinese variant has no front matter, matching the original convention.
+- Stripped every reference to Huabing Zhao / 赵化冰 / Aeraki / Istio / ONAP / Tencent.
+- Replaced the long Publications / Presentations / Open Source tables with `_To be added._` / `_待补充。_` placeholders so the structure is preserved but no inherited entries remain.
+- Files changed: `content/about/index.md`, `content/about/index-zh.md`
+- **Learnings for future iterations:**
+  - The Chinese about file (`index-zh.md`) does NOT carry its own `---` front matter; the rendering is driven by `multilingual: true` in `index.md` plus the cleanwhite theme's multilingual partial. Don't add a front matter block to it or you'll change the rendering path.
+  - `grep -ri 'zhaohuabing|huabing|赵化冰' content/about/` is a quick sanity check after edits.
+---
+

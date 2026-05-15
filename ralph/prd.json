@@ -38,8 +38,8 @@
         "Commit message: 'feat: US-002 - Rewrite About page for liuchenyang'"
       ],
       "priority": 2,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "Done in iteration 2 (2026-05-15). Replaced both about/index.md (en) and about/index-zh.md (zh) with liuchenyang's bio. Stripped Aeraki/Istio/ONAP/Tencent/Huabing references. Publications/Presentations/Open Source sections kept as '待补充。' placeholders so the table layout stays usable for later additions."
     },
     {
       "id": "US-003",
