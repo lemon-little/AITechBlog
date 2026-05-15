@@ -54,8 +54,8 @@
         "Commit message: 'feat: US-003 - Add skill-workflow section and section indexes'"
       ],
       "priority": 3,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "Done in iteration 3 (2026-05-15). Created content/post/skill-workflow/ with _index.md + how-i-use-skills.md (real first post). Added _index.md to all 6 existing post sub-folders. Build verified — all 7 section URLs resolve to public/post/<name>/index.html. Pages count went from 29 → 52."
     },
     {
       "id": "US-004",
