@@ -84,28 +84,12 @@ home = ["HTML", "RSS"]
   # twitter      = ""
   # wechat       = ""
 
-  # Top navigation — surface every content category so visitors can browse them directly
+  # Top navigation — keep it minimal. The category tree on /post/ pages is
+  # how readers drill into individual sections; the top nav doesn't need
+  # to duplicate that.
   [[params.addtional_menus]]
-  title =  "SKILLS"
-  href  =  "/post/skill-workflow/"
-  [[params.addtional_menus]]
-  title =  "前沿追踪"
-  href  =  "/post/前沿追踪/"
-  [[params.addtional_menus]]
-  title =  "项目沉淀"
-  href  =  "/post/项目沉淀/"
-  [[params.addtional_menus]]
-  title =  "瞎鼓捣工具"
-  href  =  "/post/瞎鼓捣工具/"
-  [[params.addtional_menus]]
-  title =  "基础牢固"
-  href  =  "/post/基础牢固/"
-  [[params.addtional_menus]]
-  title =  "面试常考"
-  href  =  "/post/面试常考/"
-  [[params.addtional_menus]]
-  title =  "经典品学"
-  href  =  "/post/经典品学/"
+  title =  "POST"
+  href  =  "/post/"
   [[params.addtional_menus]]
   title =  "ARCHIVE"
   href  =  "/archive/"
