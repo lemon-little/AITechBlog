@@ -1,6 +1,5 @@
 ---
 title: "面试常考"
-layout: page
 description: "面试高频考点、题型、思路整理"
 ---
 

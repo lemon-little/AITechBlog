@@ -1,0 +1,57 @@
+{{ define "main" }}
+<article class="post-section-page">
+  <div class="container-fluid cat-tree-layout">
+    <div class="row">
+      <!-- Left: Category Tree Sidebar -->
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 cat-tree-container">
+        {{ partial "category-tree.html" . }}
+      </div>
+
+      <!-- Right: Section Content + Post List -->
+      <div class="col-lg-8 col-lg-offset-0 col-md-9 col-sm-12 col-xs-12 post-container cat-tree-main">
+        <header class="section-header">
+          <h1 class="section-title">{{ .Title }}</h1>
+          {{ with .Description }}<p class="section-description">{{ . }}</p>{{ end }}
+        </header>
+
+        {{ with .Content }}
+        <div class="section-intro">
+          {{ . }}
+        </div>
+        <hr>
+        {{ end }}
+
+        {{ $allPosts := .RegularPagesRecursive }}
+        {{ if $allPosts }}
+        <h2 class="section-post-list-heading">本分类文章 ({{ len $allPosts }})</h2>
+        <div class="section-post-list">
+          {{ range (sort $allPosts "Date" "desc") }}
+          <div class="post-preview">
+            <a href="{{ .RelPermalink }}">
+              <h2 class="post-title">{{ .Title }}</h2>
+              {{ with .Params.subtitle }}<h3 class="post-subtitle">{{ . }}</h3>{{ end }}
+              <div class="post-content-preview">
+                {{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}
+              </div>
+            </a>
+            <p class="post-meta">
+              Posted by {{ with .Params.author }}{{ . }}{{ else }}{{ $.Site.Title }}{{ end }} on {{ .Date.Format "Monday, January 2, 2006" }}
+              {{ $parent := .Parent }}
+              {{ if and $parent (ne $parent.RelPermalink $.RelPermalink) }}
+                · in <a href="{{ $parent.RelPermalink }}">{{ $parent.Title }}</a>
+              {{ end }}
+            </p>
+          </div>
+          <hr>
+          {{ end }}
+        </div>
+        {{ else }}
+        <p class="section-empty">这个分类暂时还没有文章 —— 把新文章放到 <code>content{{ .RelPermalink }}</code> 下面就会自动显示在这里。</p>
+        {{ end }}
+
+        {{ partial "comments.html" . }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}

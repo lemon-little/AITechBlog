@@ -1,0 +1,43 @@
+{{/*
+  category-tree-node.html — recursive node for the category sidebar.
+  Receives dict {node: Page, current: Page, depth: int}.
+  Auto-expands the branch that contains the currently-viewed page.
+*/}}
+{{ $node := .node }}
+{{ $current := .current }}
+{{ $depth := .depth }}
+{{ $showAll := .showAll }}
+{{ $isActive := eq $current.RelPermalink $node.RelPermalink }}
+{{ $isAncestor := and (ne $node.RelPermalink $current.RelPermalink) ($current.IsDescendant $node) }}
+{{ $hasChildren := or $node.Sections $node.RegularPages }}
+{{ $shouldOpen := or $isActive $isAncestor $showAll }}
+
+<li class="cat-tree-item cat-tree-section depth-{{ $depth }} {{ if $isActive }}active{{ end }} {{ if $isAncestor }}ancestor{{ end }} {{ if $shouldOpen }}open{{ else }}collapsed{{ end }}">
+  <div class="cat-tree-row">
+    {{ if $hasChildren }}
+      <span class="cat-tree-toggle" data-toggle-tree="1">▾</span>
+    {{ else }}
+      <span class="cat-tree-toggle cat-tree-toggle-empty">·</span>
+    {{ end }}
+    <a href="{{ $node.RelPermalink }}" class="cat-tree-link">
+      <span class="cat-tree-icon">📁</span> {{ $node.Title | default $node.File.ContentBaseName }}
+    </a>
+  </div>
+  {{ if $hasChildren }}
+  <ul class="cat-tree-children">
+    {{ range (sort $node.Sections "Title" "asc") }}
+      {{ partial "category-tree-node.html" (dict "node" . "current" $current "depth" (add $depth 1) "showAll" $showAll) }}
+    {{ end }}
+    {{ range (sort $node.RegularPages "Date" "desc") }}
+      <li class="cat-tree-item cat-tree-leaf depth-{{ add $depth 1 }} {{ if eq $current.RelPermalink .RelPermalink }}active{{ end }}">
+        <div class="cat-tree-row">
+          <span class="cat-tree-toggle cat-tree-toggle-empty">·</span>
+          <a href="{{ .RelPermalink }}" class="cat-tree-link">
+            <span class="cat-tree-icon">📄</span> {{ .Title }}
+          </a>
+        </div>
+      </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</li>

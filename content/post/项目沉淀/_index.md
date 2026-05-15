@@ -1,6 +1,5 @@
 ---
 title: "项目沉淀"
-layout: page
 description: "已完成的竞赛、项目、解决方案的复盘"
 ---
 

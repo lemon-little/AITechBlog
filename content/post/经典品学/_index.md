@@ -1,6 +1,5 @@
 ---
 title: "经典品学"
-layout: page
 description: "读经典书、经典论文、经典源码的笔记"
 ---
 

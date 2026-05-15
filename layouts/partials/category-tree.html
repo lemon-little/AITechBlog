@@ -1,0 +1,34 @@
+{{/*
+  category-tree.html — left-side category sidebar.
+  Auto-walks /post/ and renders all sections + nested sections + posts.
+  New folders under content/post/ show up automatically with no config changes.
+
+  Receives the current page (.) as context — used to highlight the active node.
+*/}}
+{{ $current := . }}
+{{ $postSection := .Site.GetPage "/post" }}
+{{ if $postSection }}
+{{ $isPostRoot := eq $current.RelPermalink $postSection.RelPermalink }}
+<aside class="cat-tree">
+  <div class="cat-tree-header">
+    <h5>分类导航</h5>
+  </div>
+  <ul class="cat-tree-root">
+    <li class="cat-tree-item {{ if $isPostRoot }}active{{ end }}">
+      <a href="{{ $postSection.RelPermalink }}" class="cat-tree-link cat-tree-all">
+        <span class="cat-tree-icon">📚</span> 所有文章
+      </a>
+    </li>
+    {{ range (sort $postSection.Sections "Title" "asc") }}
+      {{ partial "category-tree-node.html" (dict "node" . "current" $current "depth" 1 "showAll" $isPostRoot) }}
+    {{ end }}
+    {{ range (sort $postSection.RegularPages "Date" "desc") }}
+      <li class="cat-tree-item cat-tree-leaf {{ if eq $current.RelPermalink .RelPermalink }}active{{ end }}">
+        <a href="{{ .RelPermalink }}" class="cat-tree-link">
+          <span class="cat-tree-icon">📄</span> {{ .Title }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</aside>
+{{ end }}

@@ -1,6 +1,5 @@
 ---
 title: "瞎鼓捣工具"
-layout: page
 description: "我日常折腾的工具、效率技巧、配置文件"
 ---
 

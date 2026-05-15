@@ -7,6 +7,11 @@ googleAnalytics = ""
 preserveTaxonomyNames = true
 hasCJKLanguage = true
 
+# Ignore folder-level human-readable notes — they have no front matter and
+# should not be indexed as posts. The cleanwhite theme demo readme.md is also
+# excluded (we keep our own README at the project root).
+ignoreFiles = ["(?i)readme\\.md$"]
+
 [pagination]
   pagerSize = 5
 
@@ -65,6 +70,10 @@ home = ["HTML", "RSS"]
   friends = false
   bookmarks = false
   about_me = true
+
+  # Custom CSS / JS (relative to /static or absolute URL)
+  custom_css = ["css/category-tree.css"]
+  custom_js  = ["js/category-tree.js"]
 
   [params.social]
   rss            = true

@@ -1,6 +1,5 @@
 ---
 title: "前沿追踪"
-layout: page
 description: "AI / LLM / Agent 前沿论文与项目的笔记"
 ---
 

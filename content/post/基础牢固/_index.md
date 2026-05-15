@@ -1,6 +1,5 @@
 ---
 title: "基础牢固"
-layout: page
 description: "底层知识、算法、系统、那些一辈子受用的基础"
 ---
 

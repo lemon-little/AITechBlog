@@ -1,6 +1,5 @@
 ---
 title: "Skill 工作流沉淀"
-layout: page
 description: "收集和沉淀我的 Claude / Agent skill 工作流"
 ---
 
