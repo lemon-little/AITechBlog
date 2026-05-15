@@ -1,35 +1,73 @@
-/* ---- Category tree sidebar (left side, only on /post/*) ---- */
+/* ==========================================================================
+   Category tree sidebar + post section page styling
+   Goal: minimal, IDE-like tree, consistent with cleanwhite theme rhythm.
+   ========================================================================== */
 
-.cat-tree-layout {
-  padding: 30px 24px 60px;
-  max-width: 1400px;
-  margin: 0 auto;
+/* ---- Section / single page outer rhythm ---- */
+
+.post-section-page,
+.post-single-page {
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 
+.post-section-page .post-container,
+.post-single-page .post-container {
+  padding-left: 30px;
+}
+
+@media (max-width: 991px) {
+  .post-section-page .post-container,
+  .post-single-page .post-container {
+    padding-left: 15px;
+    padding-top: 24px;
+  }
+}
+
+/* ---- Section page hero ---- */
+
+.intro-header.section-page-header {
+  position: relative;
+}
+.intro-header.section-page-header .page-heading h1 {
+  font-size: 36px;
+  letter-spacing: 1px;
+}
+@media only screen and (min-width: 768px) {
+  .intro-header.section-page-header .page-heading h1 {
+    font-size: 52px;
+  }
+}
+.intro-header.section-page-header .page-heading .subheading {
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ---- Category tree (left sidebar) ---- */
+
 .cat-tree-container {
-  padding-right: 16px;
+  margin-top: 4px;
 }
 
 .cat-tree {
   position: sticky;
   top: 80px;
-  background: #fafafa;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  padding: 16px 14px;
   font-size: 14px;
-  line-height: 1.55;
+  line-height: 1.6;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
+  padding-right: 4px;
 }
 
-.cat-tree-header h5 {
-  margin: 0 0 10px 0;
+.cat-tree-header {
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 1px;
-  color: #555;
-  border-bottom: 1px solid #eee;
+  letter-spacing: 2px;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 10px;
   padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
 }
 
 .cat-tree ul {
@@ -38,58 +76,89 @@
   margin: 0;
 }
 
-.cat-tree-root > li {
-  margin: 2px 0;
+.cat-tree-children {
+  padding-left: 16px !important;
+  margin: 0 !important;
+  position: relative;
 }
 
-.cat-tree-children {
-  padding-left: 18px !important;
-  border-left: 1px dashed #ddd;
-  margin-left: 8px !important;
-  margin-top: 2px !important;
+.cat-tree-children::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 6px;
+  width: 1px;
+  background: #eee;
+}
+
+.cat-tree-item {
+  margin: 0;
 }
 
 .cat-tree-row {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 4px;
-  border-radius: 4px;
+  padding: 4px 6px 4px 0;
+  border-radius: 3px;
+  transition: background 0.12s ease;
 }
 
 .cat-tree-row:hover {
-  background: #eef3f8;
+  background: #f5f7fa;
 }
 
 .cat-tree-toggle {
   display: inline-block;
   width: 14px;
-  text-align: center;
-  font-size: 11px;
-  color: #888;
+  height: 14px;
+  margin-right: 4px;
+  border: 0;
+  background: transparent;
   cursor: pointer;
-  user-select: none;
   flex-shrink: 0;
+  position: relative;
+  padding: 0;
+}
+
+.cat-tree-toggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid #aaa;
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform 0.15s ease;
+}
+
+.cat-tree-item.collapsed > .cat-tree-row .cat-tree-toggle::before {
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
 .cat-tree-toggle-empty {
   cursor: default;
-  color: #ccc;
+}
+
+.cat-tree-toggle-empty::before {
+  display: none;
 }
 
 .cat-tree-item.collapsed > .cat-tree-children {
   display: none;
 }
 
-.cat-tree-item.collapsed > .cat-tree-row .cat-tree-toggle {
-  transform: rotate(-90deg);
-}
-
 .cat-tree-link {
-  color: #333;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
   flex: 1;
-  word-break: break-all;
+  min-width: 0;
+  color: #555;
+  text-decoration: none;
+  padding: 0 4px;
 }
 
 .cat-tree-link:hover {
@@ -97,141 +166,205 @@
   text-decoration: none;
 }
 
-.cat-tree-icon {
-  margin-right: 4px;
-  font-size: 12px;
+.cat-tree-label {
+  flex: 1;
+  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.cat-tree-item.active > .cat-tree-row {
-  background: #0085a1;
-}
-
-.cat-tree-item.active > .cat-tree-row .cat-tree-link,
-.cat-tree-item.active.cat-tree-leaf > .cat-tree-link {
-  color: #fff;
-  font-weight: 600;
-}
-
-.cat-tree-item.active.cat-tree-leaf {
-  background: #0085a1;
-  border-radius: 4px;
-  padding: 3px 6px;
-}
-
-.cat-tree-item.ancestor > .cat-tree-row .cat-tree-link {
-  color: #0085a1;
-  font-weight: 600;
-}
-
-.cat-tree-leaf > .cat-tree-link,
-.cat-tree-root > .cat-tree-leaf > .cat-tree-link {
-  display: flex;
-  align-items: center;
-  padding: 3px 4px;
-  color: #555;
-  border-radius: 4px;
-}
-
-.cat-tree-root > .cat-tree-item.cat-tree-leaf:hover {
-  background: #eef3f8;
-}
-
-/* "All posts" entry */
-.cat-tree-all {
-  font-weight: 600;
-}
-
-.cat-tree-item:first-child .cat-tree-link {
-  display: flex;
-  align-items: center;
-  padding: 4px 6px;
-  border-radius: 4px;
-}
-
-/* ---- Section page (post category list) ---- */
-
-.section-header {
-  margin-bottom: 24px;
-}
-
-.section-header .section-title {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-}
-
-.section-header .section-description {
-  color: #666;
-  font-size: 15px;
-  margin: 0;
-}
-
-.section-intro {
-  background: #fafafa;
-  border-left: 4px solid #0085a1;
-  padding: 14px 18px;
-  border-radius: 4px;
-  margin-bottom: 24px;
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.section-intro h1,
-.section-intro h2 {
-  display: none; /* the page title is shown by .section-header above */
-}
-
-.section-post-list-heading {
-  font-size: 18px;
-  color: #777;
-  margin: 24px 0 12px 0;
-  font-weight: 600;
-}
-
-.section-post-list .post-preview {
-  margin-bottom: 14px;
-}
-
-.section-post-list .post-preview .post-title {
-  font-size: 22px;
-  margin: 0 0 4px 0;
-}
-
-.section-post-list .post-preview .post-subtitle {
-  font-size: 15px;
-  color: #888;
-  margin: 0 0 8px 0;
-  font-weight: 400;
-}
-
-.section-post-list .post-preview .post-content-preview {
-  color: #555;
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.section-post-list .post-preview .post-meta {
+.cat-tree-count {
+  flex-shrink: 0;
+  margin-left: 6px;
+  padding: 0 6px;
+  font-size: 11px;
   color: #999;
+  background: #f0f0f0;
+  border-radius: 8px;
+  line-height: 16px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* leaf entries (regular pages) */
+.cat-tree-leaf > .cat-tree-link,
+.cat-tree-leaf > .cat-tree-row > .cat-tree-link {
+  color: #777;
   font-size: 13px;
 }
 
-.section-empty {
-  background: #fffbe6;
-  border: 1px solid #ffe58f;
-  padding: 14px 18px;
-  border-radius: 4px;
+.cat-tree-leaf > .cat-tree-link:hover,
+.cat-tree-leaf > .cat-tree-row > .cat-tree-link:hover {
+  color: #0085a1;
+}
+
+/* sections */
+.cat-tree-section > .cat-tree-row > .cat-tree-link {
+  font-weight: 500;
+  color: #333;
+}
+
+/* "all posts" entry — depth 1 leaf at the very top */
+.cat-tree-root > li:first-child > .cat-tree-link {
+  font-weight: 600;
+  color: #333;
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+
+.cat-tree-root > li:first-child.active > .cat-tree-link {
+  background: #f0f8fa;
+  color: #0085a1;
+}
+
+/* active states */
+.cat-tree-item.active > .cat-tree-row {
+  background: #f0f8fa;
+}
+.cat-tree-item.active > .cat-tree-row > .cat-tree-link,
+.cat-tree-item.active > .cat-tree-row > .cat-tree-link > .cat-tree-label {
+  color: #0085a1;
+  font-weight: 600;
+}
+.cat-tree-item.active.cat-tree-leaf > .cat-tree-row {
+  background: #f0f8fa;
+}
+
+.cat-tree-item.ancestor > .cat-tree-row > .cat-tree-link {
+  color: #0085a1;
+}
+
+/* ---- Section page main content ---- */
+
+.section-intro {
   color: #666;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #eee;
+}
+
+/* hide auto-rendered h1 from _index.md body — the title is already in hero header */
+.section-intro > h1:first-child {
+  display: none;
+}
+
+.section-intro h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 16px 0 8px 0;
+}
+
+.section-intro blockquote {
+  font-size: 14px;
+  color: #888;
+  border-left: 3px solid #e6e6e6;
+  padding: 4px 12px;
+  margin: 12px 0;
+  background: transparent;
+}
+
+.section-intro p {
+  margin: 8px 0;
+}
+
+.section-post-list-meta {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.section-post-list .post-preview {
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.section-post-list .post-preview:last-child {
+  border-bottom: 0;
+}
+
+.section-post-list .post-preview > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-post-list .post-preview > a:hover .post-title {
+  color: #0085a1;
+}
+
+.section-post-list .post-preview .post-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+  color: #333;
+  transition: color 0.15s ease;
+}
+
+.section-post-list .post-preview .post-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #888;
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+}
+
+.section-post-list .post-preview .post-meta {
+  font-size: 12px;
+  color: #aaa;
+  margin: 6px 0 0 0;
+}
+
+.section-post-list .post-preview .post-meta-sep {
+  margin: 0 6px;
+  color: #ddd;
+}
+
+.section-post-list .post-preview .post-meta-cat {
+  color: #888;
+  text-decoration: none;
+}
+
+.section-post-list .post-preview .post-meta-cat:hover {
+  color: #0085a1;
+}
+
+.section-empty {
+  margin: 30px 0;
+  padding: 24px;
+  background: #fafafa;
+  border-radius: 4px;
+  color: #777;
+  text-align: center;
+}
+.section-empty p {
+  margin: 4px 0;
+}
+.section-empty .section-empty-hint {
+  font-size: 13px;
+  color: #999;
+}
+.section-empty code {
+  background: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  font-size: 12px;
 }
 
 /* ---- Mobile ---- */
 
 @media (max-width: 991px) {
   .cat-tree-container {
-    padding-right: 0;
     margin-bottom: 24px;
   }
   .cat-tree {
     position: static;
     max-height: none;
+    overflow: visible;
   }
 }

@@ -1,5 +1,4 @@
 {{ define "header" }}
-<!-- Post Header (kept identical to theme default) -->
 <style type="text/css">
     header.intro-header {
         background-image: url('{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ .Site.Params.header_image | relURL}}{{ end }}')
@@ -40,15 +39,15 @@
 
 {{ define "main" }}
 <article class="post-single-page">
-  <div class="container-fluid cat-tree-layout">
+  <div class="container">
     <div class="row">
       <!-- Left: Category Tree Sidebar -->
-      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 cat-tree-container">
+      <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12 cat-tree-container">
         {{ partial "category-tree.html" . }}
-      </div>
+      </aside>
 
-      <!-- Right: Post Content -->
-      <div class="col-lg-8 col-lg-offset-0 col-md-9 col-sm-12 col-xs-12 post-container cat-tree-main">
+      <!-- Right: Post content -->
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 post-container cat-tree-main">
         {{ .Content }}
 
         {{ if or (.PrevInSection) (.NextInSection) }}
