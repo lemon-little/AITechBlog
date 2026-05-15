@@ -87,15 +87,18 @@ home = ["HTML", "RSS"]
   # Top navigation — keep it minimal. The category tree on /post/ pages is
   # how readers drill into individual sections; the top nav doesn't need
   # to duplicate that.
+  # Note: href values must NOT have a leading "/" — the cleanwhite theme
+  # passes them through `relLangURL`, which treats leading "/" as
+  # server-absolute and skips the baseURL path prefix (https://.../AITechBlog/).
   [[params.addtional_menus]]
   title =  "POST"
-  href  =  "/post/"
+  href  =  "post/"
   [[params.addtional_menus]]
   title =  "ARCHIVE"
-  href  =  "/archive/"
+  href  =  "archive/"
   [[params.addtional_menus]]
   title =  "NOTES"
-  href  =  "/notes/"
+  href  =  "notes/"
   [[params.addtional_menus]]
   title =  "ABOUT"
-  href  =  "/about/"
+  href  =  "about/"
