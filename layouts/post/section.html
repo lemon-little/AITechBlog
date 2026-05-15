@@ -1,0 +1,76 @@
+{{ define "header" }}
+<style type="text/css">
+  header.intro-header.section-page-header {
+    background-image: url('{{ .Site.Params.header_image | relURL }}');
+  }
+</style>
+<header class="intro-header section-page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>{{ .Title }}</h1>
+          {{ with .Description }}<span class="subheading">{{ . }}</span>{{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<article class="post-section-page">
+  <div class="container">
+    <div class="row">
+      <!-- Left: Category Tree Sidebar -->
+      <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12 cat-tree-container">
+        {{ partial "category-tree.html" . }}
+      </aside>
+
+      <!-- Right: Section content + post list -->
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 post-container cat-tree-main">
+
+        {{ with .Content }}
+        <div class="section-intro">
+          {{ . }}
+        </div>
+        {{ end }}
+
+        {{ $allPosts := .RegularPagesRecursive }}
+        {{ if $allPosts }}
+        <div class="section-post-list-wrap">
+          <div class="section-post-list-meta">共 {{ len $allPosts }} 篇</div>
+          <div class="section-post-list">
+            {{ range (sort $allPosts "Date" "desc") }}
+            <article class="post-preview">
+              <a href="{{ .RelPermalink }}">
+                <h2 class="post-title">{{ .Title }}</h2>
+                {{ with .Params.subtitle }}<h3 class="post-subtitle">{{ . }}</h3>{{ end }}
+              </a>
+              <p class="post-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+                <span class="post-meta-sep">·</span>
+                {{ with .Params.author }}{{ . }}{{ else }}{{ $.Site.Title }}{{ end }}
+                {{ $parent := .Parent }}
+                {{ if and $parent (ne $parent.RelPermalink $.RelPermalink) }}
+                  <span class="post-meta-sep">·</span>
+                  <a href="{{ $parent.RelPermalink }}" class="post-meta-cat">{{ $parent.Title }}</a>
+                {{ end }}
+              </p>
+            </article>
+            {{ end }}
+          </div>
+        </div>
+        {{ else }}
+        <div class="section-empty">
+          <p>这个分类暂时还没有文章。</p>
+          <p class="section-empty-hint">把新文章放到 <code>content{{ .RelPermalink }}</code> 下面，刷新就会出现在这里。</p>
+        </div>
+        {{ end }}
+
+        {{ partial "comments.html" . }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,94 @@
+{
+  "project": "AITechBlog",
+  "branchName": "ralph/blog-personalize-and-organize",
+  "description": "Personalize Hugo blog for liuchenyang (刘晨阳), add a dedicated skills/workflow content section, and improve frontend navigation so the existing 6 content categories are easy to access from the site.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Personalize hugo.toml with full configuration for liuchenyang",
+      "description": "As liuchenyang, I want the site config to reflect my identity and surface every content section in the top navigation, so visitors land on a blog that is clearly mine and can browse all categories.",
+      "acceptanceCriteria": [
+        "Replace /Users/bytedance/githubpro/AITechBlog/hugo.toml with a full config sourced from themes/hugo-theme-cleanwhite/exampleSite/config.toml (or config.toml.back) and adapted for liuchenyang",
+        "Set title to '刘晨阳的博客 | liuchenyang Blog' and SEOTitle / description / keyword to match (mention AI, LLM, Agent, skill 工作流, 工程实践)",
+        "baseURL stays 'https://lemon-little.github.io/AITechBlog/' (this is the github pages URL, do not change it)",
+        "Set sidebar_about_description to a short bilingual liuchenyang intro and remove the original 'sidebar_avatar' line that points to zhaohuabing.png (comment it out or replace with a placeholder path under /img/)",
+        "Replace [params.social] block: set github = 'https://github.com/lemon-little', email = 'liuchenyang@example.com' (placeholder), remove linkedin/stackoverflow/wechat values that point to zhaohuabing",
+        "Disable services that are tied to the original author: set algolia_search = false, artalk_enable = false, disqus_proxy = '', reward = false, page_view_counter = false, ba_track_id = '', googleAnalytics = ''",
+        "Remove all [[params.friend_link]] entries pointing to zhaohuabing's friends; leave the section empty or with a single placeholder commented out",
+        "Add params.addtional_menus entries for: SKILLS -> /post/skill-workflow/, 前沿追踪 -> /post/前沿追踪/, 项目沉淀 -> /post/项目沉淀/, 瞎鼓捣工具 -> /post/瞎鼓捣工具/, 基础牢固 -> /post/基础牢固/, 面试常考 -> /post/面试常考/, 经典品学 -> /post/经典品学/, ARCHIVE -> /archive/, NOTES -> /notes/, ABOUT -> /about/",
+        "No string 'zhaohuabing' or 'Huabing' or '赵化冰' remains in hugo.toml after the change",
+        "Running `hugo --minify` from the project root completes with exit code 0 and no fatal errors",
+        "Commit message: 'feat: US-001 - Personalize hugo.toml with full configuration for liuchenyang'"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Done in iteration 1 (2026-05-15). Hugo paginate setting was deprecated in v0.128 — replaced with [pagination] pagerSize block."
+    },
+    {
+      "id": "US-002",
+      "title": "Rewrite About page for liuchenyang in English and Chinese",
+      "description": "As liuchenyang, I want the About page to introduce me — not the previous theme author — so anyone visiting /about/ sees my real bio.",
+      "acceptanceCriteria": [
+        "Rewrite /Users/bytedance/githubpro/AITechBlog/content/about/index.md so the body is liuchenyang's English bio: a short paragraph describing him as an engineer interested in AI, LLM, Agent, infrastructure, and skill workflows; remove all references to Huabing Zhao, Tencent Cloud, Istio, ONAP, Aeraki, and chongqing university",
+        "Rewrite /Users/bytedance/githubpro/AITechBlog/content/about/index-zh.md with the Chinese-language equivalent bio for 刘晨阳, also stripping all 赵化冰 references",
+        "Remove or replace the entire 'Publications', 'Presentations (Selected)', and 'Open Source Projects' tables in BOTH files. If kept, they must contain only placeholder rows or a single line like '_To be added._' / '_待补充。_' — they MUST NOT keep the original entries about Istio Service Mesh book, IstioCon, Aeraki Mesh, or hugo-theme-cleanwhite",
+        "Both files preserve the existing front matter (`---` block with `layout: page` and `multilingual: true`)",
+        "No string 'zhaohuabing', 'Huabing', '赵化冰', 'Aeraki', 'ONAP', or 'Istio' appears anywhere in content/about/ after the change (verify with `grep -ri`)",
+        "Running `hugo --minify` from the project root completes with exit code 0",
+        "Commit message: 'feat: US-002 - Rewrite About page for liuchenyang'"
+      ],
+      "priority": 2,
+      "passes": true,
+      "notes": "Done in iteration 2 (2026-05-15). Replaced both about/index.md (en) and about/index-zh.md (zh) with liuchenyang's bio. Stripped Aeraki/Istio/ONAP/Tencent/Huabing references. Publications/Presentations/Open Source sections kept as '待补充。' placeholders so the table layout stays usable for later additions."
+    },
+    {
+      "id": "US-003",
+      "title": "Add skill-workflow content section and section index pages for all categories",
+      "description": "As liuchenyang, I want a dedicated content folder where I can accumulate my Claude / agent skill workflows, AND I want every existing post sub-folder to be a real Hugo section so visitors can browse each category from the menu without 404s.",
+      "acceptanceCriteria": [
+        "Create directory /Users/bytedance/githubpro/AITechBlog/content/post/skill-workflow/ with an _index.md file. Front matter must set: layout = 'page', title = 'Skill 工作流沉淀', description = '收集和沉淀我的 Claude / Agent skill 工作流' . Body should briefly describe the section's purpose in Chinese (3-5 sentences).",
+        "Create at least one starter post inside content/post/skill-workflow/, e.g. how-i-use-skills.md, with proper front matter (layout: post, title, subtitle, date, author: '刘晨阳', image), and a short body explaining how liuchenyang uses skills. Use a real recent date (e.g. 2026-05-15).",
+        "For each of the 6 existing categories under content/post/ (基础牢固, 经典品学, 面试常考, 前沿追踪, 瞎鼓捣工具, 项目沉淀), create an _index.md with front matter (layout: page, title matching folder name, description) and a short Chinese description. Do NOT delete the existing README.md files — leave them as-is.",
+        "Verify that visiting /post/skill-workflow/, /post/基础牢固/, /post/前沿追踪/, /post/项目沉淀/, /post/瞎鼓捣工具/, /post/经典品学/, /post/面试常考/ all generate a corresponding HTML file under public/ after `hugo --minify`",
+        "Running `hugo --minify` from the project root completes with exit code 0 and produces public/post/skill-workflow/index.html",
+        "Commit message: 'feat: US-003 - Add skill-workflow section and section indexes'"
+      ],
+      "priority": 3,
+      "passes": true,
+      "notes": "Done in iteration 3 (2026-05-15). Created content/post/skill-workflow/ with _index.md + how-i-use-skills.md (real first post). Added _index.md to all 6 existing post sub-folders. Build verified — all 7 section URLs resolve to public/post/<name>/index.html. Pages count went from 29 → 52."
+    },
+    {
+      "id": "US-004",
+      "title": "Refresh homepage description, README, and remove stale theme demo content",
+      "description": "As liuchenyang, I want the homepage and project README to describe my own blog, and I want the theme's demo readme post hidden so it stops showing on the front page as if it were my content.",
+      "acceptanceCriteria": [
+        "Update /Users/bytedance/githubpro/AITechBlog/content/_index.md so title and description reflect liuchenyang's blog (e.g. title: '刘晨阳的博客', description mentions AI / Agent / skill 工作流)",
+        "Update /Users/bytedance/githubpro/AITechBlog/README.md so it briefly describes liuchenyang's blog, the tech stack (Hugo + cleanwhite theme + GitHub Pages), and links to the live site at https://lemon-little.github.io/AITechBlog/. Replace the current minimal '个人AI技术博客' line.",
+        "Set draft: true (or rename to a hidden file like _readme.md) on /Users/bytedance/githubpro/AITechBlog/content/post/readme.md so the cleanwhite theme demo post no longer appears on the homepage list",
+        "Set draft: true on /Users/bytedance/githubpro/AITechBlog/content/post/Software.md as well (it is already draft = true — verify and leave that)",
+        "Running `hugo --minify` completes with exit code 0",
+        "Verify: `grep -r 'CleanWhite' public/index.html` returns nothing (the theme demo post should not be on the front page)",
+        "Commit message: 'feat: US-004 - Refresh homepage and README, hide theme demo posts'"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Add lightweight homepage hero copy and verify deploy build",
+      "description": "As liuchenyang, I want a final pass that confirms the production build is clean and the deploy script will work, so I can confidently push to GitHub Pages.",
+      "acceptanceCriteria": [
+        "Run `hugo --minify --baseURL https://lemon-little.github.io/AITechBlog/` and confirm exit code 0 with no WARN-level messages about missing layouts for any of the 7 post sections",
+        "Verify public/index.html contains '刘晨阳' or 'liuchenyang' somewhere in the rendered output (sidebar or title)",
+        "Verify public/about/index.html does NOT contain 'Huabing' or 'zhaohuabing' (use `grep -i`)",
+        "Update deploy.sh: change the commit message default from 'rebuilding site' to 'deploy: rebuild liuchenyang blog at $(date)' and confirm the script still references `hugo` correctly. Do not run the script, just edit it.",
+        "Append a 'Deployment' section at the bottom of README.md describing how to run `hugo serve` locally and how the GitHub Actions workflow auto-deploys on push to main",
+        "Commit message: 'feat: US-005 - Final build verification and deploy script polish'"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

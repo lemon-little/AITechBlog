@@ -1,0 +1,45 @@
+# Ralph Progress Log
+Started: 2026-05-15
+---
+
+## Codebase Patterns
+- Hugo version is 0.154.5 (extended). The deprecated top-level `paginate` key must be written as `[pagination]\n  pagerSize = N` instead, otherwise build fails.
+- Theme is `hugo-theme-cleanwhite` and lives as a git submodule under `themes/hugo-theme-cleanwhite`. It uses `params.addtional_menus` (note the typo "addtional") for the top navigation.
+- Content lives under `content/post/<中文目录>/`. The cleanwhite theme picks up everything under `content/post/` automatically; an `_index.md` is what makes a sub-folder a real Hugo section page (NOT `README.md`).
+- The site is deployed to GitHub Pages via `.github/workflows/` on push to `main` — production baseURL is `https://lemon-little.github.io/AITechBlog/`.
+
+---
+
+## 2026-05-15 - US-001
+- Replaced `hugo.toml` with full personalized config: title `刘晨阳的博客 | liuchenyang Blog`, sidebar/SEO/keyword for 刘晨阳, github = lemon-little, all services tied to the original author disabled (algolia/artalk/disqus/reward/analytics).
+- Added 10 top-nav entries via `params.addtional_menus` so SKILLS / 前沿追踪 / 项目沉淀 / 瞎鼓捣工具 / 基础牢固 / 面试常考 / 经典品学 / ARCHIVE / NOTES / ABOUT are all reachable from the header.
+- Files changed: `hugo.toml`
+- **Learnings for future iterations:**
+  - Hugo 0.128+ removed top-level `paginate` — use `[pagination]\n  pagerSize` block.
+  - The cleanwhite theme expects `params.addtional_menus` (typo on purpose). Do not rename it.
+  - The submodule `themes/hugo-theme-cleanwhite` was empty on first checkout — run `git submodule update --init --recursive` before any `hugo` command.
+  - `hugo --minify` build passed with 29 pages.
+---
+
+## 2026-05-15 - US-002
+- Rewrote `content/about/index.md` (English) and `content/about/index-zh.md` (Chinese) for 刘晨阳 / liuchenyang. Kept the existing front matter intact in `index.md` (`layout: page`, `multilingual: true`); the Chinese variant has no front matter, matching the original convention.
+- Stripped every reference to Huabing Zhao / 赵化冰 / Aeraki / Istio / ONAP / Tencent.
+- Replaced the long Publications / Presentations / Open Source tables with `_To be added._` / `_待补充。_` placeholders so the structure is preserved but no inherited entries remain.
+- Files changed: `content/about/index.md`, `content/about/index-zh.md`
+- **Learnings for future iterations:**
+  - The Chinese about file (`index-zh.md`) does NOT carry its own `---` front matter; the rendering is driven by `multilingual: true` in `index.md` plus the cleanwhite theme's multilingual partial. Don't add a front matter block to it or you'll change the rendering path.
+  - `grep -ri 'zhaohuabing|huabing|赵化冰' content/about/` is a quick sanity check after edits.
+---
+
+## 2026-05-15 - US-003
+- Created the new `skill-workflow/` content section: `content/post/skill-workflow/_index.md` (section page) + `how-i-use-skills.md` (first real post, Chinese, dated 2026-05-15, author 刘晨阳).
+- Added `_index.md` to all 6 existing post sub-folders so they become real Hugo sections: `基础牢固`, `经典品学`, `面试常考`, `前沿追踪`, `瞎鼓捣工具`, `项目沉淀`.
+- Verified after `hugo --minify`: all 7 URLs `/post/<section>/` resolve to a generated `public/post/<section>/index.html`. Pages count moved from 29 → 52.
+- Files changed: `content/post/skill-workflow/_index.md`, `content/post/skill-workflow/how-i-use-skills.md`, `content/post/{基础牢固,经典品学,面试常考,前沿追踪,瞎鼓捣工具,项目沉淀}/_index.md`
+- **Learnings for future iterations:**
+  - The cleanwhite theme treats any folder under `content/post/` with an `_index.md` as a section. The pre-existing `README.md` files in those folders were ignored by Hugo (they were just plain markdown with no front matter); they can stay as folder-level human-readable notes without affecting rendering.
+  - Section pages need `layout: page` in front matter to render with the correct cleanwhite layout (otherwise they fall back to the default list).
+  - The hugo.toml top-nav links from US-001 (e.g. `/post/skill-workflow/`) only work after US-003 ships, since they require the section index pages.
+---
+
+

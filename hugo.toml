@@ -1,4 +1,101 @@
 baseURL = 'https://lemon-little.github.io/AITechBlog/'
-languageCode = 'en-us'
-title = 'AI Tech Blog'
-theme = 'hugo-theme-cleanwhite'
+title = "刘晨阳的博客 | liuchenyang Blog"
+theme = "hugo-theme-cleanwhite"
+languageCode = "zh-cn"
+disqusShortname = ""
+googleAnalytics = ""
+preserveTaxonomyNames = true
+hasCJKLanguage = true
+
+# Ignore folder-level human-readable notes — they have no front matter and
+# should not be indexed as posts. The cleanwhite theme demo readme.md is also
+# excluded (we keep our own README at the project root).
+ignoreFiles = ["(?i)readme\\.md$"]
+
+[pagination]
+  pagerSize = 5
+
+[outputs]
+home = ["HTML", "RSS"]
+
+[params]
+  header_image = "img/home-bg-jeep.jpg"
+  SEOTitle = "刘晨阳的博客 | liuchenyang Blog"
+  description = "刘晨阳，工程师 / AI 爱好者 | 这里是刘晨阳的博客，记录在 AI、LLM、Agent、Skill 工作流和工程实践方向的学习与思考。"
+  keyword = "刘晨阳, liuchenyang, 刘晨阳的博客, liuchenyang Blog, 个人博客, AI, LLM, Agent, Skill, 工作流, 工程实践, 基础设施, 算法, 前沿追踪, 项目沉淀"
+  slogan = "记录我在 AI 与工程世界的探索"
+  upstreamAttribution = false
+
+  image_404 = "img/404-bg.jpg"
+  title_404 = "你来到了没有知识的荒原 :("
+  omit_categories = false
+
+  # leancloud storage for page view counter
+  page_view_counter = false
+  leancloud_app_id = ""
+  leancloud_app_key = ""
+
+  # algolia site search
+  algolia_search = false
+  algolia_appId = ""
+  algolia_indexName = ""
+  algolia_apiKey = ""
+
+  # Sidebar settings
+  sidebar_about_description = "工程师 / AI 爱好者 · 关注 LLM、Agent、Skill 工作流与工程实践"
+  # Replace with your own avatar under /static/img/, e.g. avatar-liuchenyang.png
+  # sidebar_avatar = "img/avatar-liuchenyang.png"
+
+  featured_tags = true
+  featured_condition_size = 1
+
+  # Baidu Analytics
+  ba_track_id = ""
+
+  # Disqus proxy disabled — set up your own if needed
+  disqus_proxy = ""
+  disqus_site = ""
+
+  # Twikoo comments — disabled
+  twikoo_env_id = ""
+
+  # Artalk comments — disabled
+  artalk_enable = false
+  artalk_server = ""
+  artalk_site = ""
+
+  # Wechat / Alipay reward — disabled until liuchenyang adds his own QR codes under /static/img/reward/
+  reward = false
+
+  friends = false
+  bookmarks = false
+  about_me = true
+
+  # Custom CSS / JS (relative to /static or absolute URL)
+  custom_css = ["css/category-tree.css"]
+  custom_js  = ["js/category-tree.js"]
+
+  [params.social]
+  rss            = true
+  email          = "liuchenyang@example.com"
+  github         = "https://github.com/lemon-little"
+  # linkedin     = ""
+  # stackoverflow= ""
+  # twitter      = ""
+  # wechat       = ""
+
+  # Top navigation — keep it minimal. The category tree on /post/ pages is
+  # how readers drill into individual sections; the top nav doesn't need
+  # to duplicate that.
+  [[params.addtional_menus]]
+  title =  "POST"
+  href  =  "/post/"
+  [[params.addtional_menus]]
+  title =  "ARCHIVE"
+  href  =  "/archive/"
+  [[params.addtional_menus]]
+  title =  "NOTES"
+  href  =  "/notes/"
+  [[params.addtional_menus]]
+  title =  "ABOUT"
+  href  =  "/about/"

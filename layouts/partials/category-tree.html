@@ -1,0 +1,21 @@
+{{ $current := . }}
+{{ $postSection := .Site.GetPage "/post" }}
+{{ if $postSection }}
+{{ $isPostRoot := eq $current.RelPermalink $postSection.RelPermalink }}
+<nav class="cat-tree" aria-label="分类导航">
+  <div class="cat-tree-header">分类导航</div>
+  <ul class="cat-tree-root">
+    <li class="cat-tree-item cat-tree-leaf depth-1 {{ if $isPostRoot }}active{{ end }}">
+      <a href="{{ $postSection.RelPermalink }}" class="cat-tree-link cat-tree-all">所有文章</a>
+    </li>
+    {{ range (sort $postSection.Sections "Title" "asc") }}
+      {{ partial "category-tree-node.html" (dict "node" . "current" $current "depth" 1 "showAll" $isPostRoot) }}
+    {{ end }}
+    {{ range (sort $postSection.RegularPages "Date" "desc") }}
+      <li class="cat-tree-item cat-tree-leaf depth-1 {{ if eq $current.RelPermalink .RelPermalink }}active{{ end }}">
+        <a href="{{ .RelPermalink }}" class="cat-tree-link">{{ .Title }}</a>
+      </li>
+    {{ end }}
+  </ul>
+</nav>
+{{ end }}

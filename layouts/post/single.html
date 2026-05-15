@@ -1,0 +1,74 @@
+{{ define "header" }}
+<style type="text/css">
+    header.intro-header {
+        background-image: url('{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ .Site.Params.header_image | relURL}}{{ end }}')
+    }
+</style>
+{{ if eq .Params.headerstyle "text" }}
+<header class="intro-header style-text" >
+{{ else }}
+<header class="intro-header" >
+{{ end }}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        {{ range .Params.tags }}
+                        <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" title="{{ . }}">
+                            {{ . }}
+                        </a>
+                        {{ end }}
+                    </div>
+                    <h1>{{ .Title }}</h1>
+                    <h2 class="subheading">{{ .Params.subtitle }}</h2>
+                    <span class="meta">
+                        Posted by
+                        {{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Title }}{{ end }}
+                        on {{ .Date.Format "Monday, January 2, 2006" }}
+                        {{ if (and (not .Lastmod.IsZero) (not (eq (dateFormat "2006-01-02" .Lastmod) (dateFormat "2006-01-02" .Date)))) }}
+                            <br>Last Modified on {{ dateFormat "Monday, January 2, 2006" .Lastmod }}
+                        {{ end }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<article class="post-single-page">
+  <div class="container">
+    <div class="row">
+      <!-- Left: Category Tree Sidebar -->
+      <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12 cat-tree-container">
+        {{ partial "category-tree.html" . }}
+      </aside>
+
+      <!-- Right: Post content -->
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 post-container cat-tree-main">
+        {{ .Content }}
+
+        {{ if or (.PrevInSection) (.NextInSection) }}
+        <hr>
+        <ul class="pager">
+          {{ if .PrevInSection }}
+          <li class="previous">
+            <a href="{{ .PrevInSection.RelPermalink }}" title="{{ .PrevInSection.Title}}">&larr; Previous Post</a>
+          </li>
+          {{ end }}
+          {{ if .NextInSection }}
+          <li class="next">
+            <a href="{{ .NextInSection.RelPermalink }}" title="{{ .NextInSection.Title}}">Next Post &rarr;</a>
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
+
+        {{ partial "comments.html" . }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}
